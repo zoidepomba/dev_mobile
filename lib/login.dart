@@ -3,6 +3,7 @@ import 'package:data_trend/tell_with_us.dart';
 import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
 import 'contacts.dart';
+import 'curso.dart';
 
 class LoginApp extends StatelessWidget {
   @override
@@ -59,10 +60,28 @@ class _LoginPageState extends State<LoginPage> {
                 String email = _emailController.text;
                 String password = _passwordController.text;
                 // Faça algo com o email e a senha, como verificar a autenticidade
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => SelectedCurso()),
+                );
               },
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Meus Cursos'),
+      ),
+      body: Center(
+        child: Text('Bem-vindo à tela inicial!'),
       ),
     );
   }

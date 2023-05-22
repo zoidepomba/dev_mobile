@@ -3,6 +3,8 @@ import 'package:data_trend/tell_with_us.dart';
 import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
 import 'contacts.dart';
+import 'curso.dart';
+import 'agenda.dart';
 
 class HomeWidget extends StatelessWidget {
   @override
@@ -21,92 +23,48 @@ class Home extends StatefulWidget {
   }
 }
 
-class HomeState extends State<Home>{
+class HomeState extends State<Home> {
   @override
   static int _counter = 0;
-
-  static int incrementCounter(){
-    if (_counter < 10) {
-      _counter++;
-    }
-    else {
-      _counter+= 5;
-    }
-    return _counter;
-  }
-
-  static int recycleCounter(){
-    _counter = 0;
-    return _counter;
-  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('Data Trend Consultoria'),
-          actions: [
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  recycleCounter();
-                });
-              }, 
-              icon: const Icon(Icons.delete_sweep),
-            ),
-            PopupMenuButton(
-              itemBuilder: (context){
-                return [
-                  PopupMenuItem(
-                    child: const Text('Zerar contador'),
-                    onTap:() {
-                      setState(() {
-                        recycleCounter();
-                      });
-                    },
-                  ),
-                  PopupMenuItem(
-                    child: const Text('Sobre'),
-                    onTap: () => _sobre(context),
-                  ),
-                ];
-              })
-          ],
+        title: Text('Data Trend Consultoria'),
+        actions: [
+          PopupMenuButton(itemBuilder: (context) {
+            return [
+              PopupMenuItem(
+                child: const Text('Sobre'),
+                onTap: () => _sobre(context),
+              ),
+            ];
+          })
+        ],
       ),
       body: Center(
         child: GestureDetector(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Seja muito bem-vindo\na\nDATA TREND',
-                style: TextStyle(fontSize: 30),
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                '\nContador: $_counter', 
-                style: TextStyle(fontSize: 20),
-              ),
-            ]
-          ),
-          onTap: () {
-            setState(() {
-              incrementCounter();
-            });
-          },
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Seja muito bem-vindo\na\nDATA TREND',
+                  style: TextStyle(fontSize: 30),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  '\nContador: $_counter',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ]),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        child: Container(height: 75.0,),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            incrementCounter();
-          });
-        },
+        child: Container(
+          height: 75.0,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       drawer: Drawer(
@@ -126,16 +84,16 @@ class HomeState extends State<Home>{
               },
             ),
             ListTile(
-              title: const Text('Produtos'),
+              title: const Text('Agenda de Eventos'),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProductWidget()),
+                  MaterialPageRoute(builder: (context) => AgendaScreen()),
                 );
               },
             ),
             ListTile(
-              title: const Text('Mensagens Recebidas'),
+              title: const Text('Secretaria'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -144,11 +102,38 @@ class HomeState extends State<Home>{
               },
             ),
             ListTile(
-              title: const Text('Fale conosco'),
+              title: const Text('Calendario Academico'),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Grade Curricular'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Lista de Contatos'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Tela de Cursos'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SelectedCurso()),
                 );
               },
             ),
@@ -158,20 +143,18 @@ class HomeState extends State<Home>{
     );
   }
 
-    Future<void> _sobre(BuildContext context) {
+  Future<void> _sobre(BuildContext context) {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Sobre'),
-          content: const Text(
-            'Desenvolvido por:\n'
-            'Hebert Alves, professor de Desenvolvimento '
-            'Mobile da turma de 2023-1\n\n'
-            'Aqui é a home do nosso App, a partir dela '
-            'o usuário inicia a experiência de uso de '
-            'todas as funções criadas.'
-          ),
+          content: const Text('Desenvolvido por:\n'
+              'Hebert Alves, professor de Desenvolvimento '
+              'Mobile da turma de 2023-1\n\n'
+              'Aqui é a home do nosso App, a partir dela '
+              'o usuário inicia a experiência de uso de '
+              'todas as funções criadas.'),
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(
