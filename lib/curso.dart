@@ -28,16 +28,18 @@ class HomeStateCurso extends State<HomeCurso> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Meus Cursos'),
-        actions: [
-          PopupMenuButton(itemBuilder: (context) {
-            return [
-              PopupMenuItem(
-                child: const Text('Cursos'),
-                onTap: () => _sobre(context),
-              ),
-            ];
-          })
-        ],
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(1.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              child: Text('Sistemas de Informações'),
+              onPressed: () => _sobre(context),
+            ),
+          ]
+      ),
       ),
     );
   }
