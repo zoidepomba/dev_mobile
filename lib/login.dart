@@ -28,6 +28,37 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  void _login() {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    //logica de autenticacao
+
+    if (email == 'admin@teste.com.br' && password == 'teste123456') {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => SelectedCurso()),
+      );
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Erro de autenticação'),
+            content: Text('Credenciais invalidas. Por favor, tente novamente'),
+            actions: <Widget>[
+              /*TextButton(
+                child: Text('OK'),
+                onPressed () {
+                  Navigator.of(context).pop();
+                }
+              ),*/
+            ]
+          );
+        }
+      );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,24 +100,11 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: 24.0),
             ElevatedButton(
               child: Text('Login'),
-              onPressed: () {
-                // Implementar a lógica de autenticação aqui
-                String email = _emailController.text;
-                String password = _passwordController.text;
-                // Faça algo com o email e a senha, como verificar a autenticidade
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => SelectedCurso()),
-                );
-              },
+              onPressed: _login
             ),
             ElevatedButton(
               child: Text('Esqueci minha senha'),
               onPressed: () {
-                // Implementar a lógica de autenticação aqui
-                String email = _emailController.text;
-                String password = _passwordController.text;
-                // Faça algo com o email e a senha, como verificar a autenticidade
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => ResetSenhaApp()),

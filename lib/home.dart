@@ -30,7 +30,7 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Data Trend Consultoria'),
+        title: Text('Faculdade UNICAN'),
         actions: [
           PopupMenuButton(itemBuilder: (context) {
             return [
@@ -42,7 +42,7 @@ class HomeState extends State<Home> {
           })
         ],
       ),
-      body: Center(
+      /*body: Center(
         child: GestureDetector(
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,7 +59,7 @@ class HomeState extends State<Home> {
                 ),
               ]),
         ),
-      ),
+      ),*/
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         child: Container(

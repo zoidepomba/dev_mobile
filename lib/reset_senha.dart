@@ -61,34 +61,37 @@ class _ResetSenhaState extends State<ResetSenhaPage> {
             SizedBox(height: 24.0),
             ElevatedButton(
               child: Text('Confirmar'),
-              onPressed: () {
-                // Implementar a lógica de autenticação aqui
-                String email = _emailController.text;
-                String password = _passwordController.text;
-                // Faça algo com o email e a senha, como verificar a autenticidade
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginApp()),
-                );
-              },
+              onPressed: () => _reset(context)
             ),
           ],
         ),
       ),
     );
   }
-}
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Meus Cursos'),
-      ),
-      body: Center(
-        child: Text('Bem-vindo à tela inicial!'),
-      ),
+  Future<void> _reset(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Sobre'),
+          content: const Text('Realizado o envio do e-mail de Reset de senha'),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Voltar'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginApp())
+                );
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
