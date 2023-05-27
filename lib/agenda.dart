@@ -1,6 +1,3 @@
-import 'package:data_trend/products.dart';
-import 'package:data_trend/tell_with_us.dart';
-import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
 
 class AgendaScreen extends StatelessWidget {

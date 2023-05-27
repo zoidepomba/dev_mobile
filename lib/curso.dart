@@ -1,8 +1,4 @@
-import 'package:data_trend/products.dart';
-import 'package:data_trend/tell_with_us.dart';
-import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
-import 'contacts.dart';
 import 'home.dart';
 
 class SelectedCurso extends StatelessWidget {

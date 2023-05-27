@@ -1,8 +1,4 @@
-import 'package:data_trend/products.dart';
-import 'package:data_trend/tell_with_us.dart';
-import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
-import 'contacts.dart';
 import 'curso.dart';
 import 'reset_senha.dart';
 
@@ -34,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
 
     //logica de autenticacao
 
-    if (email == 'admin@teste.com.br' && password == 'teste123456') {
+    if (email == 'admin' && password == '123456') {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SelectedCurso()),
