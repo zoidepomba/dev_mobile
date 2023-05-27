@@ -3,6 +3,7 @@ import 'package:data_trend/tell_with_us.dart';
 import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
 import 'contacts.dart';
+import 'contato/contato.dart';
 import 'curso.dart';
 import 'agenda.dart';
 
@@ -124,7 +125,7 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                  MaterialPageRoute(builder: (context) => ContactsScreen()),
                 );
               },
             ),
