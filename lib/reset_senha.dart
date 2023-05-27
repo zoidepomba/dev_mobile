@@ -1,10 +1,9 @@
-import 'package:data_trend/products.dart';
-import 'package:data_trend/tell_with_us.dart';
-import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
 
 class ResetSenhaApp extends StatelessWidget {
+  const ResetSenhaApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,30 +11,32 @@ class ResetSenhaApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ResetSenhaPage(),
+      home: const ResetSenhaPage(),
     );
   }
 }
 
 class ResetSenhaPage extends StatefulWidget {
+  const ResetSenhaPage({super.key});
+
   @override
   State<ResetSenhaPage> createState() {
     return _ResetSenhaState();
   }
 }
+
 class _ResetSenhaState extends State<ResetSenhaPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final Map<String, dynamic> _formData = {};
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reset de senha'),
+        title: const Text('Reset de .senha'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -46,23 +47,22 @@ class _ResetSenhaState extends State<ResetSenhaPage> {
             ),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'E-mail',
               ),
             ),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Data de Nascimento',
               ),
               obscureText: true,
             ),
-            SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             ElevatedButton(
-              child: Text('Confirmar'),
-              onPressed: () => _reset(context)
-            ),
+                child: const Text('Confirmar'),
+                onPressed: () => _reset(context)),
           ],
         ),
       ),
@@ -83,10 +83,8 @@ class _ResetSenhaState extends State<ResetSenhaPage> {
               ),
               child: const Text('Voltar'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginApp())
-                );
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginApp()));
               },
             ),
           ],

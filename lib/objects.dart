@@ -1,5 +1,3 @@
-import 'package:intl/intl.dart';
-
 class Contact {
   final String? id;
   final String usuario;

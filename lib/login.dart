@@ -1,30 +1,32 @@
 import 'dart:convert';
 
-import 'package:data_trend/products.dart';
-import 'package:data_trend/tell_with_us.dart';
-import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
-import 'contacts.dart';
 import 'curso.dart';
 import 'objects.dart';
 import 'reset_senha.dart';
 import 'package:http/http.dart' as http;
 
 class LoginApp extends StatelessWidget {
+  const LoginApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -115,14 +117,14 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Bem vindo a Universidade do Canãa (UNICAN)',
               style: TextStyle(
                 fontSize: 18,
@@ -137,22 +139,22 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Email',
               ),
             ),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
               ),
               obscureText: true,
             ),
-            SizedBox(height: 24.0),
-            ElevatedButton(child: Text('Login'), onPressed: _login),
+            const SizedBox(height: 24.0),
+            ElevatedButton(onPressed: _login, child: const Text('Login')),
             ElevatedButton(
-              child: Text('Esqueci minha senha'),
+              child: const Text('Esqueci minha senha'),
               onPressed: () {
                 Navigator.pushReplacement(
                   context,

@@ -1,23 +1,28 @@
-import 'package:data_trend/products.dart';
 import 'package:data_trend/tell_with_us.dart';
 import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
-import 'contacts.dart';
-import 'contato/contato.dart';
+import 'contato.dart';
 import 'curso.dart';
 import 'agenda.dart';
+import 'grade_curricular.dart';
+import 'login.dart';
 
 class HomeWidget extends StatelessWidget {
+  const HomeWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      home: const Home(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blueGrey),
     );
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   State<Home> createState() {
     return HomeState();
@@ -26,12 +31,10 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   @override
-  static int _counter = 0;
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Faculdade UNICAN'),
+        title: const Text('Faculdade UNICAN'),
         actions: [
           PopupMenuButton(itemBuilder: (context) {
             return [
@@ -116,7 +119,8 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                  MaterialPageRoute(
+                      builder: (context) => const SelectedCursoGrade()),
                 );
               },
             ),
@@ -125,7 +129,8 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ContactsScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const ContactsScreen()),
                 );
               },
             ),
@@ -134,7 +139,17 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SelectedCurso()),
+                  MaterialPageRoute(
+                      builder: (context) => const SelectedCurso()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Sair'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginApp()),
                 );
               },
             ),

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ContactsScreen extends StatelessWidget {
+  const ContactsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contatos'),
+        title: const Text('Contatos'),
       ),
       body: ListView(
-        children: <Widget>[
+        children: const <Widget>[
           ContactCard(
             name: 'Professor 1',
             email: 'professor1@example.com',
@@ -40,33 +42,37 @@ class ContactCard extends StatelessWidget {
   final String email;
   final String phone;
 
-  ContactCard({required this.name, required this.email, required this.phone});
+  const ContactCard(
+      {super.key,
+      required this.name,
+      required this.email,
+      required this.phone});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               'Email: $email',
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               'Telefone: $phone',
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ],
         ),
