@@ -6,7 +6,7 @@ class SelectedCursoGrade extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
       home: const HomeGrade(),
       theme: ThemeData(primarySwatch: Colors.blueGrey),
     );

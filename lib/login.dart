@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'curso.dart';
 import 'objects.dart';
@@ -62,11 +61,12 @@ class _LoginPageState extends State<LoginPage> {
     String password = _passwordController.text;
 
     //logica de autenticacao
+
     fetchContacts().then((List<Aluno> alunos) {
       for (Aluno aluno in alunos) {
         if (email == aluno.email && password == aluno.pass) {
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => SelectedCurso()));
+              MaterialPageRoute(builder: (context) => const SelectedCurso()));
         } else {
           showDialog(
               context: context,
@@ -87,30 +87,6 @@ class _LoginPageState extends State<LoginPage> {
         }
       }
     });
-
-    // if (email == alunos && password == 'teste123456') {
-    //   Navigator.pushReplacement(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => SelectedCurso()),
-    //   );
-    // } else {
-    //   showDialog(
-    //       context: context,
-    //       builder: (BuildContext context) {
-    //         return AlertDialog(
-    //             title: Text('Erro de autenticação'),
-    //             content:
-    //                 Text('Credenciais invalidas. Por favor, tente novamente'),
-    //             actions: <Widget>[
-    //               /*TextButton(
-    //             child: Text('OK'),
-    //             onPressed () {
-    //               Navigator.of(context).pop();
-    //             }
-    //           ),*/
-    //             ]);
-    //       });
-    // }
   }
 
   @override
@@ -158,7 +134,8 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ResetSenhaApp()),
+                  MaterialPageRoute(
+                      builder: (context) => const ResetSenhaApp()),
                 );
               },
             ),
@@ -170,13 +147,15 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Meus Cursos'),
+        title: const Text('Meus Cursos'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Bem-vindo à tela inicial!'),
       ),
     );

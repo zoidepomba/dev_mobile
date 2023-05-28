@@ -1,4 +1,3 @@
-import 'package:data_trend/tell_with_us.dart';
 import 'package:data_trend/contacts.dart';
 import 'package:flutter/material.dart';
 import 'contato.dart';
@@ -6,6 +5,7 @@ import 'curso.dart';
 import 'agenda.dart';
 import 'grade_curricular.dart';
 import 'login.dart';
+import 'calendario.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
@@ -39,31 +39,49 @@ class HomeState extends State<Home> {
           PopupMenuButton(itemBuilder: (context) {
             return [
               PopupMenuItem(
-                child: const Text('Sobre'),
-                onTap: () => _sobre(context),
+                child: const Text('Sair'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginApp()),
+                  );
+                },
               ),
             ];
           })
         ],
       ),
-      /*body: Center(
-        child: GestureDetector(
+      body: Padding(
+          padding: EdgeInsets.all(16.0),
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Seja muito bem-vindo\na\nDATA TREND',
-                  style: TextStyle(fontSize: 30),
-                  textAlign: TextAlign.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Bem vindo a Universidade do Canãa (UNICAN)\n',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(
-                  '\nContador: $_counter',
-                  style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+              Image.asset(
+                'assets/user.png',
+                width: 200,
+                height: 200,
+              ),
+              Text(
+                'Guilherme Felipe Santos\n\n'
+                'Sistemas de informações\n\n'
+                '8ª Periodo\n\n'
+                'RA:1020304050',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
-              ]),
-        ),
-      ),*/
+                textAlign: TextAlign.center,
+              ),
+            ],
+          )),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         child: Container(
@@ -110,7 +128,7 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                  MaterialPageRoute(builder: (context) => CalendarApp()),
                 );
               },
             ),
@@ -156,34 +174,6 @@ class HomeState extends State<Home> {
           ],
         ),
       ),
-    );
-  }
-
-  Future<void> _sobre(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Sobre'),
-          content: const Text('Desenvolvido por:\n'
-              'Hebert Alves, professor de Desenvolvimento '
-              'Mobile da turma de 2023-1\n\n'
-              'Aqui é a home do nosso App, a partir dela '
-              'o usuário inicia a experiência de uso de '
-              'todas as funções criadas.'),
-          actions: <Widget>[
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Voltar'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
     );
   }
 }
