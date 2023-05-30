@@ -2,31 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-void main() {
-  runApp(CalendarApp());
-}
-
-class CalendarApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Calendar App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: CalendarScreen(),
-    );
-  }
-}
-
 class CalendarScreen extends StatelessWidget {
+  const CalendarScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calendário Acadêmico'),
+        title: const Text('Calendário Acadêmico'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
-      body: CalendarWidget(),
+      body: const CalendarWidget(),
     );
   }
 }
@@ -39,7 +30,10 @@ class Event {
 }
 
 class CalendarWidget extends StatefulWidget {
+  const CalendarWidget({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _CalendarWidgetState createState() => _CalendarWidgetState();
 }
 
@@ -117,12 +111,12 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             _updateEvents();
           },
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           'Eventos do mês de ${DateFormat('MMMM yyyy').format(selectedDate)}',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Expanded(
           child: ListView.builder(
             itemCount:

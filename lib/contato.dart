@@ -52,6 +52,10 @@ class ContactCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.all(10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      elevation: 3,
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(

@@ -8,6 +8,7 @@ class SelectedCurso extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const HomeCurso(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blueGrey),
     );
   }

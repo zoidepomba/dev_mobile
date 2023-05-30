@@ -1,11 +1,11 @@
-import 'package:data_trend/contacts.dart';
+import 'package:data_trend/secretaria.dart';
 import 'package:flutter/material.dart';
+import 'calendario.dart';
 import 'contato.dart';
 import 'curso.dart';
 import 'agenda.dart';
 import 'grade_curricular.dart';
 import 'login.dart';
-import 'calendario.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
@@ -43,7 +43,7 @@ class HomeState extends State<Home> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginApp()),
+                    MaterialPageRoute(builder: (context) => const LoginApp()),
                   );
                 },
               ),
@@ -52,11 +52,11 @@ class HomeState extends State<Home> {
         ],
       ),
       body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 'Bem vindo a Universidade do Canãa (UNICAN)\n',
                 style: TextStyle(
                   fontSize: 18,
@@ -69,7 +69,7 @@ class HomeState extends State<Home> {
                 width: 200,
                 height: 200,
               ),
-              Text(
+              const Text(
                 'Guilherme Felipe Santos\n\n'
                 'Sistemas de informações\n\n'
                 '8ª Periodo\n\n'
@@ -119,7 +119,8 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ContactsWidget()),
+                  MaterialPageRoute(
+                      builder: (context) => const SecretariaScreen()),
                 );
               },
             ),
@@ -128,7 +129,8 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CalendarApp()),
+                  MaterialPageRoute(
+                      builder: (context) => const CalendarScreen()),
                 );
               },
             ),
@@ -137,8 +139,7 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const SelectedCursoGrade()),
+                  MaterialPageRoute(builder: (context) => const HomeGrade()),
                 );
               },
             ),

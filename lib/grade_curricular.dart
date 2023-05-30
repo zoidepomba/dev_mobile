@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
 
-class SelectedCursoGrade extends StatelessWidget {
-  const SelectedCursoGrade({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const HomeGrade(),
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
-    );
-  }
-}
-
 class HomeGrade extends StatefulWidget {
   const HomeGrade({super.key});
 
@@ -28,6 +16,12 @@ class HomeStateGrade extends State<HomeGrade> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Grade Curricular'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: Center(
         child: Column(
@@ -40,7 +34,7 @@ class HomeStateGrade extends State<HomeGrade> {
               ),
               ElevatedButton(
                 child: const Text('Desenvolvimento WEB'),
-                onPressed: () => _sobre_web(context),
+                onPressed: () => sobre_web(context),
               ),
               ElevatedButton(
                 child: const Text('Desenvolvimento Mobile'),
@@ -87,7 +81,7 @@ class HomeStateGrade extends State<HomeGrade> {
   }
 
   // ignore: non_constant_identifier_names
-  Future<void> _sobre_web(BuildContext context) {
+  Future<void> sobre_web(BuildContext context) {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {

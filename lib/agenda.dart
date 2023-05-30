@@ -41,23 +41,49 @@ class AgendaScreen extends StatelessWidget {
     },
   ];
 
+  AgendaScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Agenda'),
+        title: const Text('Agenda'),
       ),
       body: ListView.builder(
         itemCount: eventos.length,
         itemBuilder: (context, index) {
           final evento = eventos[index];
 
-          return ListTile(
-            title: Text(evento['titulo']!),
-            onTap: () {
-              _mostrarResumoEvento(
-                  context, evento['titulo']!, evento['resumo']!);
-            },
+          return Card(
+            margin: const EdgeInsets.all(10),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            elevation: 3,
+            child: Container(
+              height: 100, // Defina a altura desejada aqui
+              padding: const EdgeInsets.all(16),
+              child: ListTile(
+                title: Text(
+                  evento['titulo']!,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(
+                  evento['resumo']!,
+                  maxLines: 2, // Defina o número máximo de linhas para o resumo
+                  overflow: TextOverflow.ellipsis,
+                ),
+                onTap: () {
+                  _mostrarResumoEvento(
+                    context,
+                    evento['titulo']!,
+                    evento['resumo']!,
+                  );
+                },
+              ),
+            ),
           );
         },
       ),
@@ -77,7 +103,7 @@ class AgendaScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Fechar'),
+              child: const Text('Fechar'),
             ),
           ],
         );

@@ -59,32 +59,36 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _login() async {
     String email = _emailController.text;
     String password = _passwordController.text;
+    bool auth = false;
 
     //logica de autenticacao
-
     fetchContacts().then((List<Aluno> alunos) {
       for (Aluno aluno in alunos) {
-        if (email == aluno.email && password == aluno.pass) {
+        if (aluno.email == email && password == aluno.pass) {
+          auth = true;
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const SelectedCurso()));
-        } else {
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return const AlertDialog(
-                    title: Text('Erro de autenticação'),
-                    content: Text(
-                        'Credenciais invalidas. Por favor, tente novamente'),
-                    actions: <Widget>[
-                      /*TextButton(
+          break;
+        }
+      }
+
+      if (auth == false) {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return const AlertDialog(
+                  title: Text('Erro de autenticação'),
+                  content:
+                      Text('Credenciais invalidas. Por favor, tente novamente'),
+                  actions: <Widget>[
+                    /*TextButton(
                 child: Text('OK'),
                 onPressed () {
                   Navigator.of(context).pop();
                 }
               ),*/
-                    ]);
-              });
-        }
+                  ]);
+            });
       }
     });
   }
