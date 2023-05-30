@@ -8,6 +8,16 @@ class AgendaScreen extends StatelessWidget {
           'O próximo evento Esportivo está marcado no dia 03/06/2023 as 18:30 no Parque do Sabiá.',
     },
     {
+      'titulo': 'Eventos Comunitarios',
+      'resumo':
+          'O próximo evento Comunitarios está marcado no dia 03/06/2023 as 18:30 no Parque do Sabiá.',
+    },
+    {
+      'titulo': 'Eventos educativos',
+      'resumo':
+          'O próximo evento educativos está marcado no dia 03/06/2023 as 18:30 no Parque do Sabiá.',
+    },
+    {
       'titulo': 'Congressos',
       'resumo':
           'O congresso ocorre a cada início do semestre, com a presença de todos os professores. Neste semestre ocorreu no dia 20/03.',

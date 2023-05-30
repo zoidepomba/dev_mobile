@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'carteirinha.dart';
 import 'curso.dart';
+import 'financeiro.dart';
 import 'grade_curricular.dart';
 
 class SecretariaScreen extends StatelessWidget {
@@ -28,7 +29,7 @@ class SecretariaScreen extends StatelessWidget {
                 numeroCarteirinha: '123456789',
               )),
           buildListItem(context, 'Financeiro', Icons.attach_money,
-              'Informações financeiras', const HomeGrade()),
+              'Informações financeiras', const PagamentosScreen()),
           buildListItem(context, 'Termos de Contrato', Icons.description,
               'Termos de contrato e políticas', const SelectedCurso()),
           buildListItem(context, 'Histórico Escolar', Icons.history,
