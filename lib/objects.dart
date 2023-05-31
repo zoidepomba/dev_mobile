@@ -1,5 +1,3 @@
-import 'package:intl/intl.dart';
-
 class Contact {
   final String? id;
   final String usuario;
@@ -28,7 +26,7 @@ class Contact {
     );
   }
 
-  Map getJson(){
+  Map getJson() {
     var contato = new Map();
     contato['nome'] = usuario;
     contato['telefone'] = telefone;
@@ -36,5 +34,26 @@ class Contact {
     contato['mensagem'] = mensagem;
     contato['data_hora'] = dataHora;
     return contato;
+  }
+}
+
+class Aluno {
+  final String? id;
+  final String nomeAluno;
+  final String email;
+  final String pass;
+
+  const Aluno(
+      {this.id,
+      required this.nomeAluno,
+      required this.email,
+      required this.pass});
+
+  Map getJson() {
+    var aluno = new Map();
+    aluno['nome_aluno'] = nomeAluno;
+    aluno['senha'] = pass;
+    aluno['email'] = email;
+    return aluno;
   }
 }

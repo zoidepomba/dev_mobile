@@ -1,22 +1,28 @@
-import 'package:data_trend/tell_with_us.dart';
-import 'package:data_trend/contacts.dart';
+import 'package:data_trend/secretaria.dart';
 import 'package:flutter/material.dart';
+import 'calendario.dart';
+import 'contato.dart';
 import 'curso.dart';
 import 'agenda.dart';
+import 'grade_curricular.dart';
 import 'login.dart';
-import 'calendario.dart';
 
 class HomeWidget extends StatelessWidget {
+  const HomeWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      home: const Home(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blueGrey),
     );
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   State<Home> createState() {
     return HomeState();
@@ -25,12 +31,10 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   @override
-  static int _counter = 0;
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Faculdade UNICAN'),
+        title: const Text('Faculdade UNICAN'),
         actions: [
           PopupMenuButton(itemBuilder: (context) {
             return [
@@ -39,7 +43,7 @@ class HomeState extends State<Home> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginApp()),
+                    MaterialPageRoute(builder: (context) => const LoginApp()),
                   );
                 },
               ),
@@ -48,11 +52,11 @@ class HomeState extends State<Home> {
         ],
       ),
       body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 'Bem vindo a Universidade do Canãa (UNICAN)\n',
                 style: TextStyle(
                   fontSize: 18,
@@ -65,7 +69,7 @@ class HomeState extends State<Home> {
                 width: 200,
                 height: 200,
               ),
-              Text(
+              const Text(
                 'Guilherme Felipe Santos\n\n'
                 'Sistemas de informações\n\n'
                 '8ª Periodo\n\n'
@@ -115,7 +119,8 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ContactsWidget()),
+                  MaterialPageRoute(
+                      builder: (context) => const SecretariaScreen()),
                 );
               },
             ),
@@ -124,7 +129,8 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CalendarApp()),
+                  MaterialPageRoute(
+                      builder: (context) => const CalendarScreen()),
                 );
               },
             ),
@@ -133,7 +139,7 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                  MaterialPageRoute(builder: (context) => const HomeGrade()),
                 );
               },
             ),
@@ -142,7 +148,8 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TellWithUsWidget()),
+                  MaterialPageRoute(
+                      builder: (context) => const ContactsScreen()),
                 );
               },
             ),
@@ -151,7 +158,17 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SelectedCurso()),
+                  MaterialPageRoute(
+                      builder: (context) => const SelectedCurso()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Sair'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginApp()),
                 );
               },
             ),
