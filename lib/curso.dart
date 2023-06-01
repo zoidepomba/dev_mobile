@@ -9,7 +9,7 @@ class SelectedCurso extends StatelessWidget {
     return MaterialApp(
       home: const HomeCurso(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      theme: ThemeData(primarySwatch: Colors.blue),
     );
   }
 }

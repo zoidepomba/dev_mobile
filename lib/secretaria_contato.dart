@@ -5,9 +5,10 @@ class SecretatiaContatoScreen extends StatelessWidget {
   const SecretatiaContatoScreen({super.key});
 
   void abrirUrl() async {
-    const url = 'https://flutterando.com.br/';
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+    const url = 'https://wa.me/5534992976639';
+    // ignore: deprecated_member_use
+    if (await canLaunch(url)) {
+      await launch(url);
     } else {
       throw 'Could not launch $url';
     }
