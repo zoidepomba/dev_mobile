@@ -1,3 +1,4 @@
+import 'package:data_trend/secretaria_contato.dart';
 import 'package:data_trend/termo_contrato.dart';
 import 'package:flutter/material.dart';
 import 'carteirinha.dart';
@@ -39,7 +40,7 @@ class SecretariaScreen extends StatelessWidget {
               'Contato Secretaria',
               Icons.phone,
               'Entre em contato com a secretaria',
-              const HistoricoEscolarScreen()),
+              const SecretatiaContatoScreen()),
         ],
       ),
     );

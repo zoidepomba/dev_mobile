@@ -22,7 +22,7 @@ class ContractScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Termos e Contratos - Débora'),
+        title: const Text('Termos e Contratos'),
       ),
       body: ListView.builder(
         itemCount: semesters.length,
