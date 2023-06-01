@@ -15,7 +15,7 @@ class HomeWidget extends StatelessWidget {
     return MaterialApp(
       home: const Home(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      theme: ThemeData(primarySwatch: Colors.blue),
     );
   }
 }
@@ -139,7 +139,7 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeGrade()),
+                  MaterialPageRoute(builder: (context) => HomeGrade()),
                 );
               },
             ),

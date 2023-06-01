@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PagamentosScreen extends StatelessWidget {
-  const PagamentosScreen({super.key});
+class FinanceiroScreen extends StatelessWidget {
+  const FinanceiroScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,17 +99,17 @@ class BoletoItem extends StatelessWidget {
       case StatusPagamento.pago:
         statusColor = Colors.green;
         statusText = 'Pago';
-        message = 'Pagamento realizado com sucesso.';
+        // message = 'Pagamento realizado com sucesso.';
         break;
       case StatusPagamento.pendente:
         statusColor = Colors.amber;
         statusText = 'Pendente';
-        message = 'Deseja enviar por email?';
+        // message = 'Deseja enviar por email?';
         break;
       case StatusPagamento.emAberto:
         statusColor = const Color.fromARGB(255, 129, 129, 129);
         statusText = 'Em Aberto';
-        message = 'Não disponivel para pagamento no momento!';
+        // message = 'Não disponivel para pagamento no momento!';
         break;
     }
 

@@ -1,8 +1,8 @@
+import 'package:data_trend/termo_contrato.dart';
 import 'package:flutter/material.dart';
 import 'carteirinha.dart';
-import 'curso.dart';
 import 'financeiro.dart';
-import 'grade_curricular.dart';
+import 'historico_escolar.dart';
 
 class SecretariaScreen extends StatelessWidget {
   const SecretariaScreen({super.key});
@@ -29,13 +29,17 @@ class SecretariaScreen extends StatelessWidget {
                 numeroCarteirinha: '123456789',
               )),
           buildListItem(context, 'Financeiro', Icons.attach_money,
-              'Informações financeiras', const PagamentosScreen()),
+              'Informações financeiras', const FinanceiroScreen()),
           buildListItem(context, 'Termos de Contrato', Icons.description,
-              'Termos de contrato e políticas', const SelectedCurso()),
+              'Termos de contrato e políticas', ContractScreen()),
           buildListItem(context, 'Histórico Escolar', Icons.history,
-              'Histórico escolar do aluno', const HomeGrade()),
-          buildListItem(context, 'Contato Secretaria', Icons.phone,
-              'Entre em contato com a secretaria', const SelectedCurso()),
+              'Histórico escolar do aluno', const HistoricoEscolarScreen()),
+          buildListItem(
+              context,
+              'Contato Secretaria',
+              Icons.phone,
+              'Entre em contato com a secretaria',
+              const HistoricoEscolarScreen()),
         ],
       ),
     );
