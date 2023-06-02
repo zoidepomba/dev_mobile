@@ -1,177 +1,171 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
 
-class HomeGrade extends StatefulWidget {
-  const HomeGrade({super.key});
+class HomeGrade extends StatelessWidget {
+  final List<Map<String, String>> GradeCurricular = [
+    {
+      'titulo': 'Programação Orientada a Objetos 2',
+      'resumo': 'Professor: Angela / Sala: C38\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'O que é orientação a objetos?\n'
+          'Ideia básica da Orientação a objetos (OO)\n'
+          'Classes, Atributos, Métodos e objetos o que são cada um?\n'
+          'Começar com POO\n',
+    },
+    {
+      'titulo': 'Desenvolvimento WEB',
+      'resumo': 'Professor: Bruno Messias / Sala: C31\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'O que é programação web?\n'
+          'A evolução da programação\n'
+          'As diferenças entre programação e codificação\n'
+          'Por que é importante aprender a programar web?\n'
+          'Sites para aprender como programar de graça\n'
+          'Conclusão da matéria',
+    },
+    {
+      'titulo': 'Desenvolvimento Mobile',
+      'resumo': 'Professor: Hebert / Sala: C31\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'O que é desenvolvimento mobile?\n'
+          'O que faz um desenvolvedor mobile?\n'
+          'Comparação com outros perfis de profissionais\n'
+          'Quais as linguagens utilizamos no Desenvolvimento Mobile?\n'
+          'Quais as principais plataformas de desenvolvimento mobile?\n'
+          'Quais são os tipos de desenvolvimento mobile?\n'
+          'Qual a importância do desenvolvimento mobile para o mercado?\n'
+          'Quais são os desafios do desenvolvimento para mobile?',
+    },
+    {
+      'titulo': 'Segurança da Informação',
+      'resumo': 'Professor: Daniel / Sala: C51\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'Introdução a Segurança da Informação\n'
+          'Aulas Dinâmicas e teoria\n'
+          'Aulas práticas\n'
+          'Estudo sem internet\n'
+          'Métodos Hiperlink\n'
+          'Gestão de Tempo',
+    },
+    {
+      'titulo': 'Programação em Banco de Dados',
+      'resumo': 'Professor: Adriano / Sala: C41\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'Introdução a Banco de Dados\n'
+          'Calendário Acadêmico\n'
+          'Explos de uso da linguagem SQL\n'
+          'Aprendendo a usar o draw.io 1\n'
+          'Aulas práticas com SQL\n',
+    },
+    {
+      'titulo': 'B.I - Business Intelligence',
+      'resumo': 'Professor: Herbert / Sala: C11\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'Aprendendo sobre o python e sua performance\n'
+          'O que faz cada função dentro de B.I\n'
+          'Extração de dados de fontes diversas\n'
+          'Manipulação dos dados\n'
+          'Métodos Hiperlink\n'
+          'Uso aplicado do PowerBI',
+    },
+    {
+      'titulo': 'Modelagem de Dados',
+      'resumo': 'Professor: Adriano / Sala: C71\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'O que e modelage de dados e pra que serve\n'
+          'Calendário Acadêmico\n'
+          'Aprendendo a usar o draw.io 1\n'
+          'Aprendendo a usar o draw.io 2\n'
+          'Aprendendo a usar o draw.io 3\n'
+          'Aprendendo a usar o draw.io 4\n'
+          'Aprendendo a usar o draw.io 5',
+    },
+    {
+      'titulo': 'Projeto de Extensão',
+      'resumo': 'Professor: Maxxwell / Sala: C81\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'Onde se aplica o projeto de extensão\n'
+          'Explicação sobre o modelo do PDCA\n'
+          'Explicação sobre o relatório final do projeto de extensão\n'
+          'Avaliação de trabalhos\n'
+          'Aplicação da ABNT em seu relatório\n'
+          'Gestão do tempo de trabalho',
+    },
+    {
+      'titulo': 'Trabalho de Conclusão de Curso',
+      'resumo': 'Professor: Herbert / Sala: C81\n\n'
+          'Aqui está a sua grade de conteúdos desta matéria:\n\n'
+          'Aplicação da ABNT em seu trabalho\n'
+          'Margeamento de páginas\n'
+          'Como deve ser o corpo do texto\n'
+          'Como devem ser as referências bibliograficas\n'
+          'Técnicas para defesa do TCC\n'
+          'Montagem da apresentação para defesa do TCC',
+    },
+  ];
 
-  @override
-  State<HomeGrade> createState() {
-    return HomeStateGrade();
-  }
-}
+  HomeGrade({super.key});
 
-class HomeStateGrade extends State<HomeGrade> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Grade Curricular'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
       ),
-      body: Center(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                child: const Text('Programação Orientada a Objetos 2'),
-                onPressed: () => _sobre_poo(context),
+      body: ListView.builder(
+        itemCount: GradeCurricular.length,
+        itemBuilder: (context, index) {
+          final evento = GradeCurricular[index];
+
+          return Card(
+            margin: const EdgeInsets.all(10),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            elevation: 3,
+            child: Container(
+              height: 100, // Defina a altura desejada aqui
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+              child: ListTile(
+                title: Text(
+                  evento['titulo']!,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(
+                  evento['resumo']!,
+                  maxLines: 2, // Defina o número máximo de linhas para o resumo
+                  overflow: TextOverflow.ellipsis,
+                ),
+                onTap: () {
+                  _mostrarResumoEvento(
+                    context,
+                    evento['titulo']!,
+                    evento['resumo']!,
+                  );
+                },
               ),
-              ElevatedButton(
-                child: const Text('Desenvolvimento WEB'),
-                onPressed: () => sobre_web(context),
-              ),
-              ElevatedButton(
-                child: const Text('Desenvolvimento Mobile'),
-                onPressed: () => sobre_mobile(context),
-              ),
-              ElevatedButton(
-                child: const Text('Segurança da Informação'),
-                onPressed: () => sobre_seguranca(context),
-              ),
-            ]),
+            ),
+          );
+        },
       ),
     );
   }
 
-  // ignore: non_constant_identifier_names
-  Future<void> _sobre_poo(BuildContext context) {
-    return showDialog<void>(
+  void _mostrarResumoEvento(
+      BuildContext context, String titulo, String resumo) {
+    showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (context) {
         return AlertDialog(
-          title: const Text('Sobre'),
-          content: const Text('Nessa Matéria você vai aprender sobre:\n\n'
-              'O que é orientação a objetos?\n\n'
-              'Ideia básica da Orientação a objetos(OO)\n\n'
-              'Classes, Atributos, Métodos e objetos o que são cada um?\n\n'
-              'Começar com POO\n'),
-          actions: <Widget>[
+          title: Text(titulo),
+          content: Text(resumo),
+          actions: [
             TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Portal do Aluno'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeWidget()),
-                );
+                Navigator.pop(context);
               },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  // ignore: non_constant_identifier_names
-  Future<void> sobre_web(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Sobre'),
-          content: const Text('Nessa Matéria você vai aprender sobre:\n\n'
-              'O que é programação web?\n\n'
-              'A evolução da programação\n\n'
-              'As diferença entre programação e codificação\n\n'
-              'Por que e importante aprender a programar web?\n\n'
-              'Sites para aprender como programar de graça\n\n'
-              'Conclusão da matéria'),
-          actions: <Widget>[
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Portal do Aluno'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeWidget()),
-                );
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Future<void> sobre_mobile(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Sobre'),
-          content: const Text('Nessa Matéria você vai aprender sobre:\n\n'
-              'O que é desenvolvimento mobile?\n\n'
-              'O que faz um desenvolvedor mobile?\n\n'
-              'Comparação com outros perfis de profissionais\n\n'
-              'Quais as linguagens utilizamos no Desenvolvimento Mobile?\n\n'
-              'Quais as principais plataformas de desenvolvimento mobile?\n\n'
-              'Quais são os tipos de desenvolvimento mobile?\n\n'
-              'Qual a importância do desenvolvimento mobile para o mercado?\n\n'
-              'Quais são os desafios do desenvolvimento para mobile?'),
-          actions: <Widget>[
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Portal do Aluno'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeWidget()),
-                );
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Future<void> sobre_seguranca(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Sobre'),
-          content: const Text('Nessa Matéria você vai aprender sobre:\n\n'
-              'Introdução a Segurança da Informação\n\n'
-              'Aulas Dinâmicas e teoria\n\n'
-              'Aulas práticas\n\n'
-              'Estudo sem internet\n\n'
-              'Metodos Hiperlink\n\n'
-              'Gestão de Tempo\n\n'),
-          actions: <Widget>[
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Portal do Aluno'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeWidget()),
-                );
-              },
+              child: const Text('Fechar'),
             ),
           ],
         );

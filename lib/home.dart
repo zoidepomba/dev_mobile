@@ -15,7 +15,7 @@ class HomeWidget extends StatelessWidget {
     return MaterialApp(
       home: const Home(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      theme: ThemeData(primarySwatch: Colors.blue),
     );
   }
 }
@@ -35,21 +35,6 @@ class HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Faculdade UNICAN'),
-        actions: [
-          PopupMenuButton(itemBuilder: (context) {
-            return [
-              PopupMenuItem(
-                child: const Text('Sair'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginApp()),
-                  );
-                },
-              ),
-            ];
-          })
-        ],
       ),
       body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -95,9 +80,9 @@ class HomeState extends State<Home> {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blueGrey,
+                color: Colors.blue,
               ),
-              child: Text('DATA TREND\nA parceria que você precisa!'),
+              child: Text('UNICAN\n SEJA BEM VINDO'),
             ),
             ListTile(
               title: const Text('Página inicial'),
@@ -139,7 +124,7 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeGrade()),
+                  MaterialPageRoute(builder: (context) => HomeGrade()),
                 );
               },
             ),
